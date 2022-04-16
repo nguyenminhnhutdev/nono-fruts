@@ -74,3 +74,4 @@ Route::post('/update-product/{product_id}', [ProductController::class, 'update_p
 
 //Detail sản phẩm
 Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detail_product']);
+            

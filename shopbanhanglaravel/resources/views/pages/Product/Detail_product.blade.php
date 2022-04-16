@@ -1,67 +1,80 @@
 @extends('layout')
 @section('content')
-@foreach ($product_detail as $key => $value)
+
+<section class="ftco-section testimony-section">
+    <div class="container">
+        @foreach ($product_detail as $key => $value)
 
 
-<div class="row">
-    			<div class="col-lg-6 mb-5 ftco-animate">
-    				<a href="{{URL::to('public/Fontend/images/'.$value ->product_image)}}" class="image-popup"><img src="{{URL::to('public/Fontend/images/'.$value ->product_image)}}" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                        <h3><a href="{{URL::to('/San-Pham/'.$value->product_id)}}">{{$value->product_name}}</a></h3>
-                            <p class="price"><span>{{number_format($value -> product_price).'.000'.' VNĐ'}}</span></p>
-                            <p><b>Miêu tả:</b> {{$value -> product_desc}}</p>
-                            <span>
-                                <label>Quantily</label>
-                                <input style="" type="number" class="form-control input-number" value="1" min="1" max="100">
-                            </span>
-                        <p><b>Tình Trạng:</b> Còn hàng</p>
-                        <p><b>Xuất xứ:</b> {{$value -> brand_name}}</p>
-                        <p><b>Danh mục:</b> {{$value -> category_name}}</p>
-                    <p><a href="cart.html" class="btn btn-black py-3 px-5">Add to Cart</a></p>
-    			    </div>
-                </div>
-</div>
-@endforeach
-            <section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Products</span>
-            <h2 class="mb-4">Related Products</h2>
-
-          </div>
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href="{{URL::to('public/Fontend/images/'.$value ->product_image)}}" class="image-popup"><img
+                        src="{{URL::to('public/Fontend/images/'.$value ->product_image)}}" class="img-fluid"
+                        alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3><a href="{{URL::to('/San-Pham/'.$value->product_id)}}">{{$value->product_name}}</a></h3>
+                <p class="price"><span>{{number_format($value -> product_price).'.000'.' VNĐ'}}</span></p>
+                <p><b>Miêu tả:</b> {{$value -> product_desc}}</p>
+                <span>
+                    <label>Quantily</label>
+                    <input style="" type="number" class="form-control input-number" value="1" min="1" max="100">
+                </span>
+                <p><b>Tình Trạng:</b> Còn hàng</p>
+                <p><b>Xuất xứ:</b> {{$value -> brand_name}}</p>
+                <p><b>Danh mục:</b> {{$value -> category_name}}</p>
+                <p><a href="cart.html" class="btn btn-black py-3 px-5"></a></p>
+            </div>
         </div>
-    	</div>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="{{asset('public/Fontend/images/product-1.jpg')}}" alt="Colorlib Template">
-    						<span class="status">30%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Bell Pepper</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-                                <a href="{{URL::to('/them-gio-hang/'.$value->product_id)}}" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                                <span><i class="ion-ios-cart"></i>Add cart</span>
-                                            </a>
-                                            <a href="{{URL::to('/chi-tiet-san-pham/'.$value->product_id)}}" >
-                                                <span><i ></i>Detail</span>
-                                            </a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
+    </div>
+    @endforeach
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">Products</span>
+                    <h2 class="mb-4">Sản phẩm tương tự</h2>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid"
+                                src="{{asset('public/Fontend/images/product-1.jpg')}}" alt="Colorlib Template">
+                            <!-- <span class="status">30%</span> -->
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#">Bell Pepper</a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span class="mr-2 price-dc">$120.00</span><span
+                                            class="price-sale">$80.00</span></p>
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+
+                                    <a href="{{URL::to('/them-gio-hang/'.$value->product_id)}}"
+                                        class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                        <span><i class="ion-ios-cart"></i>Add cart</span>
+                                    </a>
+                                    <a href="{{URL::to('/chi-tiet-san-pham/'.$value->product_id)}}">
+                                        <span><i class="ion-ios-cart"></i>Detail</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+    </div>
+
+    </div>
+</section>
 @endsection
