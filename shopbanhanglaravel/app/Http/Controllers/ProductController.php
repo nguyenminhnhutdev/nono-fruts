@@ -20,12 +20,11 @@ class ProductController extends Controller
         return view('admin.add_product')->with('cate_product', $cate_product)->with('brand_product', $brand_product);
     }
 
-    public function all_category_product()
+    public function all_product()
     {
-
-        $all_category_product = DB::table('tbl_category_product')->get();
-        $manager_category_product = view('admin.all_category_product')->with('all_category_product', $all_category_product);
-        return view('admin_layout')->with('admin.all_category_product', $manager_category_product);
+        $all_product = DB::table('tbl_product')->paginate(8);
+        $manager_product = view('admin.all_product')->with('all_product', $all_product);
+        return view('admin_layout')->with('admin.all_product', $manager_product);
     }
 
     public function save_product(Request $request)
@@ -57,46 +56,47 @@ class ProductController extends Controller
         return Redirect::to('add-product');
     }
 
-    public function unactive_category_product($category_product_id)
-    {
-        DB::table('tbl_category_product')->where('category_id', $category_product_id)->update(['category_status' => 1]);
-        Session::put('message', 'Không kích hoạt thành công');
-        return Redirect::to('all_category_product');
-    }
 
-    public function active_category_product($category_product_id)
-    {
-        DB::table('tbl_category_product')->where('category_id', $category_product_id)->update(['category_status' => 0]);
-        Session::put('message', 'Kích hoạt thành công');
-        return Redirect::to('all_category_product');
-    }
 
-    public function edit_category_product($category_product_id)
+    public function edit_product($product_id)
     {
-        $edit_category_product = DB::table('tbl_category_product')->where('category_id', $category_product_id)->get();
-        $manager_category_product = view('admin.edit_category_product')->with('edit_category_product', $edit_category_product);
+        $edit_product = DB::table('tbl_product')->where('product_id', $product_id)->get();
+        $manager_product = view('admin.edit_product')->with('edit_product', $edit_product);
 
-        return view('admin_layout')->with('admin.edit_category_product', $manager_category_product);
+        return view('admin_layout')->with('admin.edit_product', $manager_product);
     }
 
 
-    public function update_category_product(Request $request, $category_product_id)
+    public function update_product(Request $request, $product_id)
     {
         $data = array();
-        $data['category_name'] = $request->category_product_name;
-        $data['category_desc'] = $request->category_product_desc;
-
-
-        DB::table('tbl_category_product')->where('category_id', $category_product_id)->update($data);
-        Session::put('message', 'Cập nhật danh mục sản phẩm thành công');
-        return Redirect::to('all-category-product');
+        $data['product_name'] = $request->input('product_name');
+        $data['product_price'] = $request->input('product_price');
+        $data['product_desc'] = $request->input('product_desc');
+        $data['product_content'] = $request->input('product_content');
+        $data['category_id'] = $request->input('product_cate');
+        $data['product_status'] = $request->input('product_status');
+        $get_image = $request->file('product_image');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 1000) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('public/upload/product', $new_image);
+            $data['product_image'] = $new_image;
+            DB::table('tbl_product')->insert($data);
+            Session::put('message', 'Cập nhật sản phẩm thành công');
+            return Redirect::to('all-product');
+        }
+        DB::table('tbl_product')->where('product_id', $product_id)->update($data);
+        Session::put('message', 'Cập nhật sản phẩm thành công');
+        return Redirect::to('all-product');
     }
 
-    public function delete_category_product($category_product_id)
+    public function delete_product($product_id)
     {
-        DB::table('tbl_category_product')->where('category_id', $category_product_id)->delete();
+        DB::table('tbl_product')->where('product_id', $product_id)->delete();
         Session::put('message', 'Xóa danh mục sản phẩm thành công');
-        return Redirect::to('all-category-product');
+        return Redirect::to('all-product');
     }
 
     //End admin page

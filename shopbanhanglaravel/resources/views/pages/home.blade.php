@@ -58,7 +58,7 @@
                         <div class="text py-3 pb-4 px-3 text-center">
                             <a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}" class="img-prod"><img
                                     class="img-fluid"
-                                    src="{{URL::to('public/Fontend/images/'.$product ->product_image)}}"
+                                    src="{{URL::to('public/uploads/product/'.$product ->product_image)}}"
                                     alt="Colorlib Template">
 
                                 <div class="overlay"></div>

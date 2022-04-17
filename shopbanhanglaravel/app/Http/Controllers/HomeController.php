@@ -23,7 +23,7 @@ class HomeController extends Controller
         // ->join('tbl_brand_product','tbl_brand_product.brand_id','=','tbl_product.brand_id')
         // ->orderBy('tbl_product.product_id','desc')->get();
 
-        $all_product = DB::table('tbl_product')->orderBy('product_id', 'desc')->paginate(4);
+        $all_product = DB::table('tbl_product')->orderBy('product_id', 'desc')->paginate(8);
 
         return view('pages.home')->with('category', $cate_product)->with('brand', $brand_product)->with('all_product', $all_product);
     }
