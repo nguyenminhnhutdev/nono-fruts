@@ -14,10 +14,33 @@
             </div>
         </div>
         @endforeach
+        <style>
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+        </style>
 
 
         <div class="container">
             <div class="row">
+                @if(!empty($brand_by_id) && $brand_by_id->count())
                 @foreach ($brand_by_id as $key => $product)
 
                 <div class="col-md-6 col-lg-3 ftco-animate">
@@ -54,6 +77,18 @@
                 </div>
 
                 @endforeach
+                @else
+
+                <div class="container py-4">
+                    <div class="row d-flex justify-content-center py-5">
+                        <div class="col-md-4">
+                            <h2 style="font-size: 22px;" class="mb-0">Sản phẩm hiện đã hết hàng</h2>
+                            <span>Vui lòng chờ!!!</span>
+                        </div>
+
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
 

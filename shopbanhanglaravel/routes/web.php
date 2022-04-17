@@ -15,14 +15,16 @@ use Illuminate\Support\Facades\Route;
 //Fontend
 
 use App\Http\Controllers\HomeController;
+
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/Trang-chu',[HomeController::class, 'index']);
+Route::get('/Trang-chu', [HomeController::class, 'index']);
 
 
 
 //Backend
 
 use App\Http\Controllers\AdminController;
+
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::post('/admin_dashboard', [AdminController::class, 'dashboard']);
@@ -30,6 +32,7 @@ Route::get('/logout', [AdminController::class, 'log_out']);
 
 //Category product
 use App\Http\Controllers\CategoryProduct;
+
 Route::get('/add-category-product', [CategoryProduct::class, 'add_category_product']);
 Route::get('/all-category-product', [CategoryProduct::class, 'all_category_product']);
 Route::get('/edit-category-product/{category_product_id}', [CategoryProduct::class, 'edit_category_product']);
@@ -43,6 +46,7 @@ Route::get('/active-category-product/{category_product_id}', [CategoryProduct::c
 
 
 use App\Http\Controllers\BrandProduct;
+
 Route::get('/add-brand-product', [BrandProduct::class, 'add_brand_product']);
 Route::get('/all-brand-product', [BrandProduct::class, 'all_brand_product']);
 Route::get('/edit-brand-product/{brand_product_id}', [BrandProduct::class, 'edit_brand_product']);
@@ -60,6 +64,7 @@ Route::post('/update-brand-product/{brand_product_id}', [BrandProduct::class, 'u
 Route::get('/Xuat-su-trai-cay/{brand_id}', [BrandProduct::class, 'show_brand_home']);
 
 use App\Http\Controllers\ProductController;
+
 Route::get('/add-product', [ProductController::class, 'add_product']);
 Route::get('/all-product', [ProductController::class, 'all_product']);
 Route::get('/edit-product/{product_id}', [ProductController::class, 'edit_product']);
@@ -74,4 +79,7 @@ Route::post('/update-product/{product_id}', [ProductController::class, 'update_p
 
 //Detail sản phẩm
 Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detail_product']);
-            
+
+
+//Cart
+Route::get('/add-to-cart/{product_id}', [ProductController::class, 'addToCart']);

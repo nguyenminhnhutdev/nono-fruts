@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-
+            @if(!empty($all_product) && $all_product->count())
             @foreach ($all_product as $key => $product)
             <a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}">
                 <div class="col-md-6 col-lg-3 ftco-animate">
@@ -73,7 +73,7 @@
                             <div class="bottom-area d-flex px-3">
                                 <div class="m-auto d-flex">
 
-                                    <a href="{{URL::to('/them-gio-hang/'.$product->product_id)}}"
+                                    <a href="{{ url('/add-to-cart/'.$product->product_id) }}"
                                         class="buy-now d-flex justify-content-center align-items-center mx-1">
                                         <span><i class="ion-ios-cart"></i></span>
                                     </a>
@@ -87,7 +87,17 @@
                 </div>
             </a>
             @endforeach
+            <span class="subheading text-center">{{$all_product->links()}}</span>
+            <div class="subheading"></div>
+
+
+            @else
+            <h2>Sản phẩm hiện đã hết hàng</h2>
+            @endif
+
+
         </div>
+
     </div>
 </section>
 
