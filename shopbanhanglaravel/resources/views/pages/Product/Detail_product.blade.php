@@ -11,6 +11,8 @@
                 <a href="{{URL::to('public/uploads/product/'.$value ->product_image)}}" class="image-popup"><img
                         src="{{URL::to('public/uploads/product/'.$value ->product_image)}}" class="img-fluid"
                         alt="Colorlib Template"></a>
+
+
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
 
@@ -47,17 +49,27 @@
                                 <i class="ion-ios-add"></i>
                             </button>
                         </span>
+
+
                     </div>
                     <button type="submit" class="btn btn-fefault ">Thêm vào giỏ hàng</button>
-
+                    <a href="{{URL::to('/add-to-cart/'.$value->product_id)}}"
+                        class="btn btn-warning btn-block text-center" role="button">Add to cart</a> </p>
+                    <script async defer crossorigin="anonymous"
+                        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=590050075396022&autoLogAppEvents=1"
+                        nonce="1Tl0EwCi"></script>
 
                 </form>
 
 
 
-
             </div>
+
+
+
+
         </div>
+    </div>
     </div>
     @endforeach
 

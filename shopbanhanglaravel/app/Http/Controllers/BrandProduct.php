@@ -88,7 +88,7 @@ class BrandProduct extends Controller
 
         $brand_by_id = DB::table('tbl_product')
             ->join('tbl_brand_product', 'tbl_product.brand_id', '=', 'tbl_brand_product.brand_id')
-            ->where('tbl_product.brand_id', $brand_id)->get();
+            ->where('tbl_product.brand_id', $brand_id)->paginate(8);
 
         $brand_name = DB::table('tbl_brand_product')->where('tbl_brand_product.brand_id', $brand_id)->limit(1)->get();
 

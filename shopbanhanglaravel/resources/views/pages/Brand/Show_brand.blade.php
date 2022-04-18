@@ -77,6 +77,9 @@
                 </div>
 
                 @endforeach
+                <div>
+                    {{$brand_by_id->links('partials.my-paginate')}}
+                </div>
                 @else
 
                 <div class="container py-4">

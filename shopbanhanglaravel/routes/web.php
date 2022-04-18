@@ -82,4 +82,7 @@ Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detail
 
 
 //Cart
-Route::get('/add-to-cart/{product_id}', [ProductController::class, 'addToCart']);
+Route::get('/cart', [ProductController::class, 'cart']);
+Route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart']);
+Route::patch('/update-cart', [ProductController::class, 'update'])->name('update.cart');
+Route::delete('/remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');

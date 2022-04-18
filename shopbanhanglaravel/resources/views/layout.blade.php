@@ -72,7 +72,123 @@
     </script>
     <script src="{{asset('public/assets/js/google-map.js')}}"></script>
     <script src="{{asset('public/assets/js/main.js')}}"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=590050075396022&autoLogAppEvents=1"
+        nonce="W0FULqvb"></script>
+    <div class="fb-comments" data-href="https://www.facebook.com/profile.php?id=100006421546739" data-width=""
+        data-numposts="5"></div>
 
+
+
+
+
+    <div id="fb-root"></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="call-mobile">
+        <a id="callnowbutton text-center" href="tel:0999999999">Gọi 0389672882</a>
+    </div>
+
+    <style>
+    .success1.is-underline:hover,
+    .success1.is-outline:hover,
+    .success1 {
+        background-color: #1E73BE;
+        padding: 0 5px;
+        color: white !important;
+    }
+
+    .success2.is-underline:hover,
+    .success2.is-outline:hover,
+    .success2 {
+        background-color: #ff4800;
+        padding: 0 5px;
+        color: white !important;
+    }
+
+    .call-mobile {
+        background: #00a63f;
+        position: fixed;
+        bottom: 10px;
+        height: 40px;
+        line-height: 40px;
+        padding: 7px 0px 0 0px;
+        border-radius: 40px;
+        color: #fff;
+        left: 20px;
+        z-index: 99999;
+    }
+
+    .call-mobile1 {
+        position: fixed;
+        bottom: 55px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 0px 0 0px;
+        border-radius: 40px;
+        color: #fff;
+        left: 20px;
+        z-index: 99999;
+    }
+
+    .call-mobile2 {
+        position: fixed;
+        bottom: 100px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 0px 0 0px;
+        border-radius: 40px;
+        color: #fff;
+        left: 20px;
+        z-index: 99999;
+    }
+
+    .call-mobile i {
+        font-size: 20px;
+        line-height: 40px;
+        background: #B52026;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        float: right;
+    }
+
+    .call-mobile a {
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    .button span {
+        text-transform: initial;
+        font-weight: 400;
+        font-family: poppins;
+    }
+
+    a#callnowbutton {
+        font-family: poppins;
+        font-weight: 400;
+    }
+    </style>
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+    <div class="zalo-chat-widget" data-oaid="1086421708065720085" data-welcome-message="R?t vui khi du?c h? tr? b?n!"
+        data-autopopup="1000" data-width="350" data-height="420">
+        <h1></h1>
+    </div>
 </body>
 
 </html>
